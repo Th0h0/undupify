@@ -13,7 +13,7 @@ alreadySeen = {}
 
 globalUrlFootprint = regex.compile('(?<=(\?|\&).*=)(.*?)(?=(\&|$))')
 parametersName = regex.compile('(?<=(\?|&))(.*?)(?==)')     #Extract value at the right [1]
-doubleSlashes = regex.compile('(?<=[a-z])(\/.*?\/.*?)(?=(\/|\?))') # => .search().group()
+doubleSlashes = regex.compile('(?<=[a-z0-9])(\/.*?\/.*?)(?=(\/|\?))') # => .search().group()
 
 if args.output:
     output = open(args.output, "w")
