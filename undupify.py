@@ -48,6 +48,7 @@ def isDuplicate(url, alreadySeen):
             #Heuristic 2 : URLs are necessarily duplicate if they just differ from parameters' values
             return True
         else:
+            hostDirectory[0].add(getGlobalFootprint(url))
             doubleSlashesContent = getBetweenTwoSlashes(url)
             parametersName = getParameterNames(url)
             twoSlashesContentDirectory = hostDirectory[1].get(doubleSlashesContent)
@@ -67,7 +68,7 @@ def isDuplicate(url, alreadySeen):
 
             else:
 
-                hostDirectory[1][doubleSlashesContent] = set(frozenset(parametersName))
+                hostDirectory[1][doubleSlashesContent] = {frozenset(parametersName)}
 
                 ##Define new heuristic here
                 # Input info : host already exists, no met URLs had the same global footprint and contained the same content between two slashes
