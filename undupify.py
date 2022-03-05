@@ -1,10 +1,11 @@
 import argparse
 import regex
+import sys
 from urllib.parse import urlparse
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--file", "-f", type=str, required=False, help= 'file containing all URLs to clean')
-parser.add_argument("--verbose", "-v", action='store_true', help='activate verbose mode for the tool')
 parser.add_argument("--output", "-o", action='store_true', help='output file path')
 
 args = parser.parse_args()
@@ -18,7 +19,8 @@ doubleSlashes = regex.compile('(?<=[a-z0-9])(\/.*?\/.*?)(?=(\/|\?))') # => .sear
 if args.output:
     output = open(args.output, "w")
 else:
-    output = open("cleaned-URLS.txt", "w")
+    currentPath = os.path.dirname(__file__)
+    output = open(f"{currentPath}/cleaned-URLS.txt", "w")
 
 def getGlobalFootprint(url):
     urlWithEmptyParam = globalUrlFootprint.sub('',url)
@@ -89,6 +91,7 @@ def isDuplicate(url, alreadySeen):
         return False
 
 def main():
+
     URLS = open(args.file, "r")
 
     for url in URLS:
