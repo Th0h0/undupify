@@ -21,8 +21,9 @@ This is where **Undupif**y becomes useful : based on heuristics, it attempts to 
 
 To detect whether an analyzed URL is duplicate or unique, the tool currently relies on the two following heuristics : 
 
-- Heuristic 1  - If the analyzed URL has the exact same paths and parameters, but not necessarily same parameters’ values, as a previously seen URL, then it should be considered duplicate.
-- Heuristic 2 - If the analyzed URL has the exact same content between its two first path, delimited by `/`, and the same parameters as a previously seen URL, then it should be considered duplicate.
+- Heuristic 1 - If the analyzed URL has a hostname & port that have never been seen on previous URLS, then it should NOT be considered duplicate but unique.
+- Heuristic 2  - If the analyzed URL has the exact same paths and parameters, but not necessarily same parameters’ values, as a previously seen URL, then it should be considered duplicate.
+- Heuristic 3 - If the analyzed URL has the exact same content between its two first path, delimited by `/`, and the same parameters as a previously seen URL, then it should be considered duplicate.
 
 ---
 
