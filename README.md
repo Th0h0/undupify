@@ -12,7 +12,7 @@
 
 ### Description
 
-When searching vulnerabilities at scale, it is a very frequent practice to retrieve all URLs associated to a company with tools such as *waybackurls* or *gau*, and then perform query-parameters-based filtering, looking for XSS, SQLi, SSRF, etc.
+When searching vulnerabilities at scale, it is a very frequent practice to retrieve all URLs associated to a company, with tools such as *waybackurls* or *gau*, and then perform query-parameters-based filtering, looking for XSS, SQLi, SSRF, etc.
 
 In this context, even though retrieved URLs have been processed by a first layer of filtering, a bunch of URLs would stil remain, and lots of them would be completely irrelevant by basically consisting of a subtle variations of others. 
 Even though they would have some different path names or different parameters’s value, they would be processed by the exact same back-end function. When this happens, we of course don’t want to deal with them multiple times, as they would basically have the same behavior against fuzzing.
