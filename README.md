@@ -1,6 +1,6 @@
 ### TL;DR
 
-**Undupify** allows to get rid of most of irrelevant and identical-in-behavior URLs in a file. **Undupify** incorporates itself really well in a hacking workflow where you would want to apply a second layer of filtering to your URLs before sending them to a deep time-consuming vulnerability scan.
+**Undupify** allows to get rid of most of irrelevant and identical-in-behavior URLs in a file. **Undupify** incorporates itself really well in a hacking workflow where you would want to apply an additional layer of filtering to your URLs before sending them to a deep time-consuming vulnerability scan.
 
 ---
 
@@ -17,13 +17,13 @@ When searching vulnerabilities at scale, it is a very frequent practice to retri
 In this context, even though retrieved URLs have been processed by a first layer of filtering, a bunch of URLs would stil remain, and lots of them would be completely irrelevant by basically consisting of a subtle variations of others. 
 Even though they would have some different path names or different parameters’s value, they would be processed by the exact same back-end function. When this happens, we of course don’t want to deal with them multiple times, as they would basically have the same behavior against fuzzing.
 
-This is where **Undupif**y becomes useful : based on heuristics, it attempts to efficiently distinguish which URLs are duplicates of others, and remove them.
+This is where **Undupify** becomes useful : based on heuristics, it attempts to efficiently distinguish which URLs are duplicates of others, and remove them.
 
-To detect whether an analyzed URL is duplicate or unique, the tool currently relies on the two following heuristics : 
+To detect whether an analyzed URL is duplicate or unique, the tool currently relies on the following heuristics : 
 
 - Heuristic 1 - If the analyzed URL has a hostname & port that have never been seen on previous URLS, then it should NOT be considered duplicate but unique.
 - Heuristic 2  - If the analyzed URL has the exact same paths and parameters, but not necessarily same parameters’ values, as a previously seen URL, then it should be considered duplicate.
-- Heuristic 3 - If the analyzed URL has the exact same content between its two first path, delimited by `/`, and the same parameters as a previously seen URL, then it should be considered duplicate.
+- Heuristic 3 - If the analyzed URL has the exact same content between its two first path, delimited by `/`, and the same parameters, as a previously seen URL, then it should be considered duplicate.
 
 ---
 
