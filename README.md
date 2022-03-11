@@ -48,6 +48,7 @@ Basic use:
 ```
 python3 undupify.py -f URLs_to_filter.txt
 ```
+---
 
 ### Installation
 
