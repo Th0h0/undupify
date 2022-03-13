@@ -7,8 +7,8 @@ currentPath = os.path.dirname(__file__)
 os.chdir(currentPath)
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--file", "-f", type=str, required=False, help= 'file containing all URLs to clean')
-parser.add_argument("--output", "-o", action='store_true', help='output file path')
+parser.add_argument("--file", "-f", type=str, required=True, help= 'file containing all URLs to clean')
+parser.add_argument("--output", "-o", type=str, required=False, help='output file path')
 
 args = parser.parse_args()
 
