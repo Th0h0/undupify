@@ -100,6 +100,7 @@ def main():
         parsing = urlparse(url)
         if not isDuplicate(url, alreadySeen):
             output.write(f"{url}\n")
+    output.close()
 
 
 if __name__ == '__main__':
