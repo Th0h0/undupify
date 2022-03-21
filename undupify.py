@@ -95,6 +95,7 @@ def main():
         url = url.replace('\n', '')
         parsing = urlparse(url)
         if not isDuplicate(url, alreadySeen):
+            print(url)
             output.write(f"{url}\n")
     output.close()
 
