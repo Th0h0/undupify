@@ -1,6 +1,10 @@
 import argparse
 import regex
+import os
 from urllib.parse import urlparse
+
+currentPath = os.path.dirname(__file__)
+os.chdir(currentPath)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--file", "-f", type=str, required=True, help= 'file containing all URLs to clean')
