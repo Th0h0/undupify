@@ -62,7 +62,7 @@ git clone https://github.com/Th0h0/undupify.git
 2  - Install requirements
 
 ```
-cd autoredirect 
+cd undupify
 pip install regex
 ```
 
